@@ -1,0 +1,2239 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Para Tami 🌷</title>
+
+
+    <style>
+
+        /* =====================================================
+           CONFIGURACIÓN GENERAL
+        ===================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+
+            min-height: 100vh;
+
+            background: #050505;
+
+            color: white;
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            overflow: hidden;
+        }
+
+
+        /* =====================================================
+           FONDO
+        ===================================================== */
+
+        .background {
+
+            position: fixed;
+
+            inset: 0;
+
+            background:
+
+                radial-gradient(
+                    circle at 50% 40%,
+                    rgba(255, 105, 170, 0.12),
+                    transparent 35%
+                ),
+
+                radial-gradient(
+                    circle at 15% 20%,
+                    rgba(255, 170, 205, 0.05),
+                    transparent 25%
+                ),
+
+                #050505;
+
+            z-index: -5;
+        }
+
+
+        /* =====================================================
+           ESTRELLAS
+        ===================================================== */
+
+        .stars {
+
+            position: fixed;
+
+            inset: 0;
+
+            overflow: hidden;
+
+            z-index: -4;
+
+            pointer-events: none;
+        }
+
+        .star {
+
+            position: absolute;
+
+            width: 2px;
+
+            height: 2px;
+
+            border-radius: 50%;
+
+            background: #ffb5d2;
+
+            opacity: .3;
+
+            animation:
+                sparkle
+                3s
+                ease-in-out
+                infinite;
+        }
+
+        @keyframes sparkle {
+
+            0% {
+                opacity: .15;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 1;
+                transform: scale(2);
+            }
+
+            100% {
+                opacity: .15;
+                transform: scale(1);
+            }
+        }
+
+
+        /* =====================================================
+           PANTALLA PRINCIPAL
+        ===================================================== */
+
+        .home {
+
+            min-height: 100vh;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            text-align: center;
+
+            padding: 25px;
+
+            transition:
+                opacity 1s ease,
+                transform 1s ease;
+        }
+
+        .home.hide {
+
+            opacity: 0;
+
+            transform: scale(.96);
+
+            pointer-events: none;
+        }
+
+        .content {
+
+            width: 100%;
+
+            max-width: 600px;
+
+            animation:
+                entrance
+                1.5s
+                ease;
+        }
+
+        @keyframes entrance {
+
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+
+        /* =====================================================
+           TULIPÁN PRINCIPAL
+        ===================================================== */
+
+        .tulip {
+
+            position: relative;
+
+            width: 140px;
+
+            height: 205px;
+
+            margin:
+                0 auto 5px;
+
+            animation:
+                floating
+                4s
+                ease-in-out
+                infinite;
+        }
+
+        @keyframes floating {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-9px);
+            }
+        }
+
+
+        .stem {
+
+            position: absolute;
+
+            left: 67px;
+
+            top: 67px;
+
+            width: 5px;
+
+            height: 125px;
+
+            background:
+                linear-gradient(
+                    to bottom,
+                    #75aa82,
+                    #477a5a
+                );
+
+            border-radius: 10px;
+        }
+
+
+        .leaf {
+
+            position: absolute;
+
+            width: 60px;
+
+            height: 23px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #82b98d,
+                    #4e835f
+                );
+
+            border-radius:
+                100% 0 100% 0;
+
+            left: 20px;
+
+            top: 115px;
+
+            transform:
+                rotate(-28deg);
+        }
+
+        .leaf.right {
+
+            left: 55px;
+
+            top: 142px;
+
+            transform:
+                rotate(28deg)
+                scaleX(-1);
+        }
+
+
+        .flower {
+
+            position: absolute;
+
+            left: 41px;
+
+            top: 5px;
+
+            width: 58px;
+
+            height: 75px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #ffc1da,
+                    #e75a95
+                );
+
+            border-radius:
+                50% 50% 45% 45%;
+
+            box-shadow:
+                0 0 35px
+                rgba(255, 105, 170, .35);
+
+            z-index: 3;
+        }
+
+        .flower::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 38px;
+
+            height: 62px;
+
+            left: -12px;
+
+            top: -3px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #ffafd0,
+                    #ed719f
+                );
+
+            border-radius:
+                70% 30% 60% 40%;
+
+            transform:
+                rotate(-17deg);
+
+            z-index: -1;
+        }
+
+        .flower::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 38px;
+
+            height: 62px;
+
+            right: -12px;
+
+            top: -3px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #f386ae,
+                    #d94b82
+                );
+
+            border-radius:
+                30% 70% 40% 60%;
+
+            transform:
+                rotate(17deg);
+
+            z-index: -1;
+        }
+
+
+        /* =====================================================
+           TEXTO DE PORTADA
+        ===================================================== */
+
+        .mini-title {
+
+            color: #d798b4;
+
+            font-size: 11px;
+
+            letter-spacing: 5px;
+
+            text-transform: uppercase;
+
+            margin-bottom: 14px;
+        }
+
+        h1 {
+
+            font-size:
+                clamp(
+                    55px,
+                    14vw,
+                    88px
+                );
+
+            font-weight: normal;
+
+            letter-spacing: 2px;
+
+            margin-bottom: 15px;
+        }
+
+        .name {
+
+            color: #ff9fc7;
+
+            text-shadow:
+                0 0 25px
+                rgba(255, 105, 170, .35);
+        }
+
+        .phrase {
+
+            max-width: 460px;
+
+            margin: auto;
+
+            color: #cfcfcf;
+
+            font-size: 16px;
+
+            line-height: 1.8;
+        }
+
+
+        /* =====================================================
+           SOBRE
+        ===================================================== */
+
+        .envelope-area {
+
+            margin-top: 35px;
+        }
+
+        .envelope {
+
+            position: relative;
+
+            width: 170px;
+
+            height: 110px;
+
+            margin: auto;
+
+            background: #151515;
+
+            border:
+                1px solid
+                rgba(255, 159, 199, .45);
+
+            cursor: pointer;
+
+            box-shadow:
+                0 15px 45px
+                rgba(0, 0, 0, .6);
+
+            transition:
+                transform .4s ease,
+                box-shadow .4s ease;
+        }
+
+        .envelope:hover {
+
+            transform:
+                translateY(-7px)
+                scale(1.03);
+
+            box-shadow:
+                0 18px 50px
+                rgba(255, 105, 170, .18);
+        }
+
+        .envelope-back {
+
+            position: absolute;
+
+            inset: 0;
+
+            background: #171717;
+
+            z-index: 1;
+        }
+
+        .envelope-left {
+
+            position: absolute;
+
+            left: 0;
+
+            bottom: 0;
+
+            width: 0;
+
+            height: 0;
+
+            border-top:
+                55px solid transparent;
+
+            border-left:
+                84px solid #222;
+
+            z-index: 2;
+        }
+
+        .envelope-right {
+
+            position: absolute;
+
+            right: 0;
+
+            bottom: 0;
+
+            width: 0;
+
+            height: 0;
+
+            border-top:
+                55px solid transparent;
+
+            border-right:
+                84px solid #222;
+
+            z-index: 2;
+        }
+
+        .flap {
+
+            position: absolute;
+
+            top: 0;
+
+            left: 0;
+
+            width: 0;
+
+            height: 0;
+
+            border-left:
+                84px solid transparent;
+
+            border-right:
+                84px solid transparent;
+
+            border-top:
+                62px solid #292929;
+
+            transform-origin: top;
+
+            transition:
+                transform
+                1s
+                cubic-bezier(.2,.8,.2,1);
+
+            z-index: 5;
+        }
+
+        .envelope-heart {
+
+            position: absolute;
+
+            left: 50%;
+
+            top: 55%;
+
+            transform:
+                translate(-50%, -50%);
+
+            color: #ff8fbd;
+
+            font-size: 26px;
+
+            z-index: 7;
+
+            text-shadow:
+                0 0 15px
+                rgba(255, 105, 170, .4);
+        }
+
+        .open-text {
+
+            margin-top: 16px;
+
+            color: #d99ab5;
+
+            font-size: 12px;
+
+            letter-spacing: 2px;
+
+            animation:
+                pulseText
+                2.5s
+                ease-in-out
+                infinite;
+        }
+
+        @keyframes pulseText {
+
+            0%,
+            100% {
+                opacity: .5;
+            }
+
+            50% {
+                opacity: 1;
+            }
+        }
+
+
+        /* =====================================================
+           PÉTALOS
+        ===================================================== */
+
+        .petal {
+
+            position: fixed;
+
+            top: -40px;
+
+            color: #ff9fc7;
+
+            pointer-events: none;
+
+            z-index: 100;
+
+            animation:
+                falling
+                linear
+                forwards;
+        }
+
+        @keyframes falling {
+
+            0% {
+
+                transform:
+                    translateY(0)
+                    rotate(0deg);
+
+                opacity: 0;
+            }
+
+            15% {
+                opacity: .9;
+            }
+
+            100% {
+
+                transform:
+                    translateY(115vh)
+                    rotate(360deg);
+
+                opacity: 0;
+            }
+        }
+
+
+        /* =====================================================
+           CARTA
+        ===================================================== */
+
+        .letter-screen {
+
+            position: fixed;
+
+            inset: 0;
+
+            display: none;
+
+            justify-content: center;
+
+            align-items: flex-start;
+
+            padding:
+                40px 20px;
+
+            background:
+
+                radial-gradient(
+                    circle at 50% 30%,
+                    rgba(255, 105, 170, .10),
+                    transparent 35%
+                ),
+
+                #050505;
+
+            z-index: 30;
+
+            overflow-y: auto;
+
+            animation:
+                screenAppear
+                1.5s
+                ease;
+        }
+
+        @keyframes screenAppear {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    scale(1.03);
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    scale(1);
+            }
+        }
+
+
+        .letter {
+
+            width: 100%;
+
+            max-width: 600px;
+
+            margin: auto;
+
+            padding:
+                45px 38px;
+
+            text-align: center;
+
+            background:
+                rgba(255, 255, 255, .035);
+
+            border:
+                1px solid
+                rgba(255, 159, 199, .22);
+
+            border-radius: 30px;
+
+            box-shadow:
+                0 0 80px
+                rgba(255, 105, 170, .08);
+
+            backdrop-filter:
+                blur(15px);
+
+            animation:
+                letterUp
+                1.4s
+                ease;
+        }
+
+        @keyframes letterUp {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(35px);
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+            }
+        }
+
+
+        /* =====================================================
+           PEQUEÑO TULIPÁN DE CARTA
+        ===================================================== */
+
+        .little-flower {
+
+            position: relative;
+
+            width: 60px;
+
+            height: 75px;
+
+            margin:
+                0 auto 10px;
+        }
+
+        .little-flower .head {
+
+            position: absolute;
+
+            width: 38px;
+
+            height: 45px;
+
+            left: 11px;
+
+            top: 0;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #ffc1da,
+                    #df5c91
+                );
+
+            border-radius:
+                50% 50% 45% 45%;
+
+            box-shadow:
+                0 0 25px
+                rgba(255, 105, 170, .25);
+        }
+
+        .little-flower .stem {
+
+            left: 29px;
+
+            top: 38px;
+
+            height: 37px;
+
+            width: 3px;
+        }
+
+
+        /* =====================================================
+           TÍTULO CARTA
+        ===================================================== */
+
+        .letter-small {
+
+            color: #d998b4;
+
+            font-size: 10px;
+
+            letter-spacing: 5px;
+
+            margin-bottom: 12px;
+        }
+
+        .letter h2 {
+
+            font-size:
+                clamp(
+                    30px,
+                    8vw,
+                    42px
+                );
+
+            font-weight: normal;
+
+            line-height: 1.35;
+
+            color: #eeeeee;
+
+            margin-bottom: 22px;
+        }
+
+        .letter h2 span {
+
+            color: #ff9fc7;
+
+            text-shadow:
+                0 0 20px
+                rgba(255, 105, 170, .35);
+        }
+
+        .line {
+
+            width: 55px;
+
+            height: 1px;
+
+            background: #ff9fc7;
+
+            margin:
+                0 auto 32px;
+
+            opacity: .65;
+        }
+
+
+        /* =====================================================
+           TEXTO CARTA
+        ===================================================== */
+
+        .letter p {
+
+            color: #d8d8d8;
+
+            font-size: 16px;
+
+            line-height: 1.95;
+
+            margin-bottom: 23px;
+        }
+
+        .letter p span {
+
+            color: #ffabc9;
+        }
+
+
+        .birthday {
+
+            margin:
+                35px 0;
+
+            color: #ff9fc7;
+
+            font-size: 21px;
+
+            letter-spacing: 1px;
+
+            text-shadow:
+                0 0 20px
+                rgba(255, 105, 170, .3);
+        }
+
+        .signature {
+
+            margin-top: 32px;
+
+            color: #d79ab5;
+
+            font-size: 15px;
+
+            font-style: italic;
+        }
+
+
+        /* =====================================================
+           BOTÓN PARA EL BONO
+        ===================================================== */
+
+        .more-button {
+
+            margin-top: 35px;
+
+            padding:
+                14px 28px;
+
+            border:
+                1px solid
+                rgba(255, 159, 199, .5);
+
+            background:
+                rgba(255, 159, 199, .06);
+
+            color: #ffb5d2;
+
+            border-radius: 30px;
+
+            font-family: Georgia, serif;
+
+            font-size: 15px;
+
+            cursor: pointer;
+
+            transition: .4s;
+        }
+
+        .more-button:hover {
+
+            background: #ff9fc7;
+
+            color: #090909;
+
+            transform:
+                translateY(-3px);
+
+            box-shadow:
+                0 0 30px
+                rgba(255, 105, 170, .25);
+        }
+
+
+        /* =====================================================
+           PANTALLA "FALTA ALGO MÁS"
+        ===================================================== */
+
+        .surprise-screen {
+
+            position: fixed;
+
+            inset: 0;
+
+            background: #050505;
+
+            display: none;
+
+            justify-content: center;
+
+            align-items: center;
+
+            text-align: center;
+
+            z-index: 200;
+
+            overflow: hidden;
+
+            animation:
+                surpriseAppear
+                1.5s ease;
+        }
+
+        @keyframes surpriseAppear {
+
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .surprise-content {
+
+            position: relative;
+
+            z-index: 210;
+
+            padding: 25px;
+
+            animation:
+                surpriseText
+                1.8s
+                ease;
+        }
+
+        @keyframes surpriseText {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(20px);
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+            }
+        }
+
+        .surprise-small {
+
+            color: #d998b4;
+
+            letter-spacing: 5px;
+
+            font-size: 11px;
+
+            margin-bottom: 20px;
+        }
+
+        .surprise-content h2 {
+
+            color: #eeeeee;
+
+            font-size:
+                clamp(
+                    35px,
+                    9vw,
+                    55px
+                );
+
+            font-weight: normal;
+
+            line-height: 1.3;
+        }
+
+        .surprise-content h2 span {
+
+            color: #ff9fc7;
+        }
+
+        .surprise-flower {
+
+            font-size: 45px;
+
+            margin-bottom: 20px;
+
+            animation:
+                flowerBounce
+                3s
+                ease-in-out
+                infinite;
+        }
+
+        @keyframes flowerBounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-8px);
+            }
+        }
+
+
+        /* =====================================================
+           JARDÍN DE TULIPANES
+        ===================================================== */
+
+        .garden {
+
+            position: absolute;
+
+            inset: 0;
+
+            pointer-events: none;
+
+            overflow: hidden;
+
+            z-index: 201;
+        }
+
+        .garden-flower {
+
+            position: absolute;
+
+            bottom: -130px;
+
+            width: 45px;
+
+            height: 130px;
+
+            opacity: 0;
+
+            animation:
+                growFlower
+                2s
+                ease forwards;
+        }
+
+        .garden-head {
+
+            position: absolute;
+
+            left: 5px;
+
+            top: 0;
+
+            width: 35px;
+
+            height: 48px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #ffc1da,
+                    #dc4e89
+                );
+
+            border-radius:
+                50% 50% 45% 45%;
+
+            box-shadow:
+                0 0 25px
+                rgba(255, 105, 170, .35);
+        }
+
+        .garden-stem {
+
+            position: absolute;
+
+            left: 21px;
+
+            top: 40px;
+
+            width: 3px;
+
+            height: 90px;
+
+            background:
+                linear-gradient(
+                    to bottom,
+                    #78aa82,
+                    #3f714f
+                );
+
+            border-radius: 10px;
+        }
+
+        @keyframes growFlower {
+
+            0% {
+
+                opacity: 0;
+
+                transform:
+                    translateY(100px)
+                    scale(.5);
+            }
+
+            70% {
+
+                opacity: 1;
+            }
+
+            100% {
+
+                opacity: .95;
+
+                transform:
+                    translateY(0)
+                    scale(1);
+            }
+        }
+
+
+        /* =====================================================
+           BONO
+        ===================================================== */
+
+        .coupon {
+
+            position: relative;
+
+            z-index: 220;
+
+            width: 100%;
+
+            max-width: 520px;
+
+            margin: auto;
+
+            padding:
+                40px 28px;
+
+            background:
+
+                linear-gradient(
+                    135deg,
+                    #191919,
+                    #0d0d0d
+                );
+
+            border:
+                1px solid
+                rgba(255, 159, 199, .6);
+
+            box-shadow:
+
+                0 0 70px
+                rgba(255, 105, 170, .15),
+
+                inset 0 0 30px
+                rgba(255, 159, 199, .025);
+
+            animation:
+                couponAppear
+                2.5s
+                ease;
+        }
+
+        @keyframes couponAppear {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    scale(.85)
+                    translateY(30px);
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    scale(1)
+                    translateY(0);
+            }
+        }
+
+        .coupon::before {
+
+            content: "";
+
+            position: absolute;
+
+            inset: 10px;
+
+            border:
+                1px dashed
+                rgba(255, 159, 199, .35);
+
+            pointer-events: none;
+        }
+
+        .coupon-top {
+
+            color: #d998b4;
+
+            letter-spacing: 5px;
+
+            font-size: 10px;
+
+            margin-bottom: 18px;
+        }
+
+        .coupon h2 {
+
+            color: #ff9fc7;
+
+            font-size:
+                clamp(
+                    30px,
+                    8vw,
+                    43px
+                );
+
+            font-weight: normal;
+
+            margin-bottom: 20px;
+
+            text-shadow:
+                0 0 25px
+                rgba(255, 105, 170, .25);
+        }
+
+        .coupon-main {
+
+            color: #f0f0f0;
+
+            font-size: 21px;
+
+            line-height: 1.6;
+
+            margin-bottom: 20px;
+        }
+
+        .coupon-main strong {
+
+            color: #ffb4d0;
+
+            font-weight: normal;
+        }
+
+        .coupon-small {
+
+            color: #999;
+
+            font-size: 13px;
+
+            line-height: 1.7;
+
+            margin-top: 15px;
+        }
+
+        .coupon-joke {
+
+            margin-top: 22px;
+
+            color: #ff9fc7;
+
+            font-size: 14px;
+
+            font-style: italic;
+        }
+
+        .coupon-flowers {
+
+            margin-top: 25px;
+
+            font-size: 25px;
+
+            letter-spacing: 7px;
+        }
+
+
+        /* =====================================================
+           RESPONSIVE
+        ===================================================== */
+
+        @media (max-width: 600px) {
+
+            .home {
+
+                padding:
+                    20px 18px;
+            }
+
+            .tulip {
+
+                transform:
+                    scale(.85);
+
+                margin-bottom:
+                    -10px;
+            }
+
+            h1 {
+
+                font-size: 62px;
+            }
+
+            .phrase {
+
+                font-size: 15px;
+            }
+
+            .envelope-area {
+
+                margin-top: 27px;
+            }
+
+            .letter-screen {
+
+                padding:
+                    25px 15px;
+            }
+
+            .letter {
+
+                padding:
+                    35px 22px;
+            }
+
+            .letter p {
+
+                font-size: 15px;
+
+                line-height: 1.85;
+            }
+
+            .letter h2 {
+
+                font-size: 31px;
+            }
+
+            .coupon {
+
+                padding:
+                    35px 20px;
+            }
+
+            .coupon-main {
+
+                font-size: 18px;
+            }
+        }
+
+
+        @media (max-width: 380px) {
+
+            h1 {
+
+                font-size: 53px;
+            }
+
+            .phrase {
+
+                font-size: 14px;
+            }
+
+            .letter {
+
+                padding:
+                    30px 18px;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         FONDO
+    ===================================================== -->
+
+    <div class="background"></div>
+
+    <div
+        class="stars"
+        id="stars">
+    </div>
+
+
+
+    <!-- =====================================================
+         PORTADA
+    ===================================================== -->
+
+    <main
+        class="home"
+        id="home">
+
+        <div class="content">
+
+
+            <div class="tulip">
+
+                <div class="flower"></div>
+
+                <div class="stem"></div>
+
+                <div class="leaf"></div>
+
+                <div class="leaf right"></div>
+
+            </div>
+
+
+            <div class="mini-title">
+
+                UN PEQUEÑO DETALLE
+
+            </div>
+
+
+            <h1>
+
+                Para
+
+                <span class="name">
+
+                    Tami
+
+                </span>
+
+            </h1>
+
+
+            <p class="phrase">
+
+                Hay personas que hacen que ciertos
+                momentos sean un poquito más bonitos.
+
+            </p>
+
+
+            <div class="envelope-area">
+
+
+                <div
+                    class="envelope"
+                    id="envelope"
+                    onclick="openLetter()"
+                >
+
+                    <div class="envelope-back"></div>
+
+                    <div class="envelope-left"></div>
+
+                    <div class="envelope-right"></div>
+
+                    <div
+                        class="flap"
+                        id="flap">
+                    </div>
+
+                    <div class="envelope-heart">
+
+                        ♥
+                        
+                    </div>
+
+                </div>
+
+
+                <div class="open-text">
+
+                    toca el sobre
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+
+    <!-- =====================================================
+         CARTA
+    ===================================================== -->
+
+    <section
+        class="letter-screen"
+        id="letterScreen"
+    >
+
+        <div class="letter">
+
+
+            <div class="little-flower">
+
+                <div class="head"></div>
+
+                <div class="stem"></div>
+
+            </div>
+
+
+            <div class="letter-small">
+
+                PARA TI
+
+            </div>
+
+
+            <h2>
+
+                Feliz cumpleaños,
+
+                <br>
+
+                <span>
+                    Tami
+                </span>
+
+            </h2>
+
+
+            <div class="line"></div>
+
+
+            <p>
+
+                Hoy quería recordarte lo bonita
+                y especial que eres.
+
+            </p>
+
+
+            <p>
+
+                Tienes una forma muy tuya de ser,
+                de hablar y de expresarte,
+                y creo que eso es parte de lo que
+                te hace
+
+                <span>
+                    tan especial.
+                </span>
+
+            </p>
+
+
+            <p>
+
+                Y sí, también tienes una voz muy linda,
+                de esas que hacen que una conversación
+                se sienta diferente.
+
+            </p>
+
+
+            <p>
+
+                Espero que hoy recibas muchísimo cariño,
+                que te consientan mucho
+                y que pases un día increíble.
+
+            </p>
+
+
+            <p>
+
+                Deseo que este nuevo año esté lleno
+                de momentos bonitos, nuevas experiencias,
+                muchas risas y cosas que te hagan feliz.
+
+            </p>
+
+
+            <p>
+
+                Me alegra mucho haberte conocido
+                y espero que sigamos compartiendo
+                muchos momentos más.
+
+            </p>
+
+
+            <p>
+
+                Disfruta muchísimo tu día, Tami,
+                porque definitivamente te lo mereces.
+
+            </p>
+
+
+            <div class="birthday">
+
+                Feliz cumpleaños 🎂
+
+            </div>
+
+
+            <p>
+
+                Espero que este pequeño detalle
+                te saque una sonrisa
+                y te recuerde que eres alguien
+
+                <span>
+                    muy especial.
+                </span>
+
+            </p>
+
+
+            <div class="signature">
+
+                — Con mucho cariño 🖤
+
+            </div>
+
+
+            <!-- BOTÓN PARA LA SORPRESA -->
+
+            <button
+                class="more-button"
+                onclick="showSurprise()"
+            >
+
+                Espera... falta algo más 👀
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         SORPRESA
+    ===================================================== -->
+
+    <section
+        class="surprise-screen"
+        id="surpriseScreen"
+    >
+
+
+        <!-- FLORES -->
+
+        <div
+            class="garden"
+            id="garden">
+        </div>
+
+
+
+        <!-- MENSAJE -->
+
+        <div
+            class="surprise-content"
+            id="surpriseContent"
+        >
+
+            <div class="surprise-flower">
+
+                🌷
+
+            </div>
+
+
+            <div class="surprise-small">
+
+                ESPERA...
+
+            </div>
+
+
+            <h2>
+
+                Falta algo
+
+                <span>
+                    más.
+                </span>
+
+            </h2>
+
+        </div>
+
+
+
+        <!-- BONO -->
+
+        <div
+            class="coupon"
+            id="coupon"
+            style="display:none;"
+        >
+
+            <div class="coupon-top">
+
+                BONO ESPECIAL
+
+            </div>
+
+
+            <h2>
+
+                🌷 Para Tami 🌷
+
+            </h2>
+
+
+            <div class="coupon-main">
+
+                <strong>
+                    Válido para pedir
+                    lo que quieras.
+                </strong>
+
+            </div>
+
+
+            <div class="coupon-small">
+
+                Canjeable cuando quieras.
+                <br>
+
+                Sin fecha de vencimiento.
+                <br>
+
+                Y sí... este bono es solo para ti. 🩷
+
+            </div>
+
+
+            <div class="coupon-joke">
+
+                Bueno... casi lo que quieras. 
+
+            </div>
+
+
+            <div class="coupon-flowers">
+
+                🌷 🩷 🌷 🩷 🌷
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ===================================================== -->
+
+    <script>
+
+
+        /* =====================================================
+           ESTRELLAS
+        ===================================================== */
+
+        const starsContainer =
+            document.getElementById("stars");
+
+
+        for (
+            let i = 0;
+            i < 120;
+            i++
+        ) {
+
+            const star =
+                document.createElement("div");
+
+
+            star.classList.add("star");
+
+
+            star.style.left =
+                Math.random() * 100 + "%";
+
+
+            star.style.top =
+                Math.random() * 100 + "%";
+
+
+            const size =
+                Math.random() * 2 + 1;
+
+
+            star.style.width =
+                size + "px";
+
+
+            star.style.height =
+                size + "px";
+
+
+            star.style.animationDelay =
+                Math.random() * 4 + "s";
+
+
+            star.style.animationDuration =
+                (2 + Math.random() * 4) + "s";
+
+
+            starsContainer.appendChild(star);
+
+        }
+
+
+
+        /* =====================================================
+           ABRIR SOBRE
+        ===================================================== */
+
+        function openLetter() {
+
+
+            const flap =
+                document.getElementById("flap");
+
+
+            const home =
+                document.getElementById("home");
+
+
+            const letter =
+                document.getElementById(
+                    "letterScreen"
+                );
+
+
+            const envelope =
+                document.getElementById(
+                    "envelope"
+                );
+
+
+            envelope.style.pointerEvents =
+                "none";
+
+
+            flap.style.transform =
+                "rotateX(180deg)";
+
+
+            createPetals();
+
+
+            setTimeout(() => {
+
+                home.classList.add("hide");
+
+            }, 500);
+
+
+            setTimeout(() => {
+
+                letter.style.display =
+                    "flex";
+
+                document.body.style.overflow =
+                    "hidden";
+
+            }, 1200);
+
+        }
+
+
+
+        /* =====================================================
+           PÉTALOS
+        ===================================================== */
+
+        function createPetals() {
+
+
+            for (
+                let i = 0;
+                i < 35;
+                i++
+            ) {
+
+
+                setTimeout(() => {
+
+
+                    const petal =
+                        document.createElement(
+                            "div"
+                        );
+
+
+                    petal.classList.add(
+                        "petal"
+                    );
+
+
+                    petal.innerHTML =
+                        "♥";
+
+
+                    petal.style.left =
+                        Math.random() * 100 + "vw";
+
+
+                    petal.style.fontSize =
+                        (
+                            10 +
+                            Math.random() * 16
+                        ) + "px";
+
+
+                    petal.style.animationDuration =
+                        (
+                            4 +
+                            Math.random() * 5
+                        ) + "s";
+
+
+                    document.body.appendChild(
+                        petal
+                    );
+
+
+                    setTimeout(() => {
+
+                        petal.remove();
+
+                    }, 10000);
+
+
+                }, i * 70);
+
+            }
+
+        }
+
+
+
+        /* =====================================================
+           MOSTRAR SORPRESA
+        ===================================================== */
+
+        function showSurprise() {
+
+
+            const surprise =
+                document.getElementById(
+                    "surpriseScreen"
+                );
+
+
+            const letter =
+                document.getElementById(
+                    "letterScreen"
+                );
+
+
+            surprise.style.display =
+                "flex";
+
+
+            letter.style.display =
+                "none";
+
+
+            createGarden();
+
+
+            /*
+                Después de unos segundos
+                desaparece "Falta algo más"
+                y aparece el bono.
+            */
+
+            setTimeout(() => {
+
+
+                const surpriseContent =
+                    document.getElementById(
+                        "surpriseContent"
+                    );
+
+
+                surpriseContent.style.transition =
+                    "opacity 1s ease";
+
+
+                surpriseContent.style.opacity =
+                    "0";
+
+
+            }, 2800);
+
+
+            setTimeout(() => {
+
+
+                document.getElementById(
+                    "surpriseContent"
+                ).style.display =
+                    "none";
+
+
+                document.getElementById(
+                    "coupon"
+                ).style.display =
+                    "block";
+
+
+                createPetals();
+
+
+            }, 3900);
+
+        }
+
+
+
+        /* =====================================================
+           CREAR JARDÍN
+        ===================================================== */
+
+        function createGarden() {
+
+
+            const garden =
+                document.getElementById(
+                    "garden"
+                );
+
+
+            garden.innerHTML = "";
+
+
+            const amount =
+                window.innerWidth < 600
+                ? 18
+                : 30;
+
+
+            for (
+                let i = 0;
+                i < amount;
+                i++
+            ) {
+
+
+                setTimeout(() => {
+
+
+                    const flower =
+                        document.createElement(
+                            "div"
+                        );
+
+
+                    flower.classList.add(
+                        "garden-flower"
+                    );
+
+
+                    flower.style.left =
+                        Math.random() * 100 + "%";
+
+
+                    flower.style.bottom =
+                        (
+                            -20 +
+                            Math.random() * 80
+                        ) + "px";
+
+
+                    flower.style.transform =
+                        "scale(" +
+                        (
+                            .65 +
+                            Math.random() * .65
+                        ) +
+                        ")";
+
+
+                    flower.style.animationDelay =
+                        (
+                            Math.random() * .8
+                        ) + "s";
+
+
+                    flower.innerHTML = `
+
+                        <div
+                            class="garden-head">
+                        </div>
+
+                        <div
+                            class="garden-stem">
+                        </div>
+
+                    `;
+
+
+                    garden.appendChild(
+                        flower
+                    );
+
+
+                }, i * 80);
+
+            }
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>
